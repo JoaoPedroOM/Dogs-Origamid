@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container {
+    @apply max-w-4xl mx-auto px-4; /* Aplica as utilidades Tailwind */
+  }
+  .button-details {
+    @apply focus:outline-none focus:shadow-button hover:shadow-button disabled:opacity-50 disabled:cursor-wait;
+    transition: 0.1s;
+  }
+  .input-details {
+    @apply focus:outline-none focus:border-[#fb1] hover:border-[#fb1] focus:bg-white hover:bg-white focus:shadow-inputSd hover:shadow-inputSd;
+    transition: 0.2s;
+  }
+  .title{
+    @apply text-custom-black text-5xl my-4 relative font-main font-bold z-20;
+  }
+  .title::after{
+    @apply block w-6 h-6 bg-[#fb1] absolute bottom-[5px] left-[-5px] rounded z-[-1];
+     content: "";
+  }
+  .titleCadastro{
+    @apply text-custom-black text-5xl my-4 relative font-main font-bold z-20;
+  }
+  .titleCadastro::after{
+    @apply block w-6 h-6 bg-[#fb1] absolute top-[18px] left-[-5px] rounded z-[-1];
+     content: "";
+  }
+  .bgLogin{
+    @apply grid grid-cols-my-columns min-h-screen gap-8 sm:grid-cols-1;
+  }
+  .bgLogin::before{
+    @apply before:block sm:hidden;
+    content: "";
+    background: url("./assets/login.jpg") no-repeat center center;
+    background-size: cover;
+  }
+  .buttonAccount {
+		@apply flex sm:justify-center bg-[#eee] items-center justify-center h-10 w-10 sm:w-10 sm:bg-[#eee] py-2 sm:p-0 border border-b-[#eee] sm:border-transparent rounded cursor-pointer hover:bg-white hover:border-[#333]; 
+    outline: none;
+	}
+  .buttonAccountMobile{
+    @apply bg-[#eee] rounded h-10 w-10 p-0 flex items-center justify-center cursor-pointer border border-solid border-transparent after:content-[''] after:block after:w-4 after:h-[2px] after:bg-current after:rounded-sm after:shadow-mobile focus:shadow-inputSd focus:bg-[white] focus:border-[#fb1] hover:shadow-inputSd hover:bg-[white] hover:border-[#fb1] hover:text-[#fb1] focus:text-[#fb1] after:transition-[.2s];
+    outline: none;
+  }
+  .navMobile{
+    @apply block absolute top-[60px] right-0 px-4 bg-white shadow rounded-[.2rem];
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+  }
+  .detailsVisualizacao{
+    @apply before:content-[''] before:w-[16px] before:h-[10px] before:inline-block before:mr-[.25rem] before:bg-[url('./assets/visualizacao.svg')] before:bg-no-repeat
+  }
+  .modal{
+    @apply flex fixed w-screen h-screen top-0 left-0 bg-black/40 z-50 pt-8 pr-[calc(4rem+15px)] pb-8 pl-16 sm:pr-[calc(2rem+15px)] sm:pl-8;
+  }
+  .photo{
+    @apply grid bg-white sm:h-auto h-[36rem] m-auto sm:grid-cols-[minmax(auto,40rem)] grid-cols-[36rem_20rem] grid-rows-[auto_1fr_auto] sm:overflow-hidden sm:max-h-[calc(100vh-4rem)] max-h-full sm:overflow-y-auto overflow-y-hidden animate-scaleup;
+    transform: scale(.8); 
+  }
+  .img{
+    @apply row-imgDefaultRow sm:row-rowImg;
+  }
+  .visualizacao{
+    @apply before:inline-block before:content-[''] before:w-[16px] before:h-[10px] before:mr-[0.5rem] before:bg-[url('./assets/visualizacao-black.svg')]
+  }
+  .load{
+    @apply m-auto w-20 h-20 flex justify-center items-center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    padding-left: 5px;
+  }
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh + 10rem);
+}
+
+.soFlex{
+  flex: 1;
+}
+
+.VictoryContainer{
+  height: initial !important;
+}
+
+nav a.active,
+nav a.active:focus,
+nav a.active:hover {
+	background: white;
+	box-shadow: 0 0 0 3px #fea;
+	border-color: #fb1;
+}
+
+nav a.active svg > * {
+  fill: #fb1;
+}
+
+.buttonAccountMobile.active{
+	outline: none;
+	background: white;
+	border-color: #fb1;
+	color: #fb1;
+	box-shadow: 0 0 0 3px #fea;
+}
+
+.buttonAccountMobile.active::after {
+	transform: rotate(90deg);
+	width: 4px;
+	height: 4px;
+	box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+
+.navMobileActive{
+  transition: .3s;
+  transform: initial;
+  opacity: 1;
+  z-index: 100;
+  pointer-events: initial;
+}
+
+.navMobile a,
+.navMobile button{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: .5rem 0;
+  cursor: pointer;
+}
+.navMobile a:hover svg > *,
+.navMobile button:hover svg > *{
+  fill: #fb1;
+}
+.navMobile button{
+  border-bottom: none;
+}
+.navMobile svg{
+  margin-right: .5rem;
+}
+
